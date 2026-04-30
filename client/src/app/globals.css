@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+:root {
+  --font-scale: 100%;
+  --line-gap: 1.55;
+  --bg: #f6ead8;
+  --surface: rgba(255, 250, 242, 0.82);
+  --surface-strong: #fff9f1;
+  --text: #16211f;
+  --muted: #4d5d59;
+  --accent: #006d5b;
+  --accent-soft: #d7f0e9;
+  --border: rgba(22, 33, 31, 0.12);
+  --shadow: 0 24px 70px rgba(33, 32, 28, 0.12);
+}
+
+:root[data-contrast="high"] {
+  --bg: #fffdf7;
+  --surface: #ffffff;
+  --surface-strong: #ffffff;
+  --text: #000000;
+  --muted: #161616;
+  --accent: #000000;
+  --accent-soft: #ffeb3b;
+  --border: #000000;
+}
+
+:root[data-hide-images="true"] img {
+  opacity: 0.12;
+  filter: grayscale(1);
+}
+
+:root[data-focus="true"] :is(
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    [role="button"],
+    [data-radix-collection-item],
+    [tabindex]
+  ):focus,
+:root[data-focus="true"] :is(
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    [role="button"],
+    [data-radix-collection-item],
+    [tabindex]
+  ):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 18%, transparent);
+  border-radius: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-scale);
+  scroll-behavior: smooth;
+  min-height: 100%;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.72),
+      transparent 32%
+    ),
+    linear-gradient(145deg, #f7efe2 0%, #dcefe3 45%, #f8dccf 100%);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-space-grotesk), sans-serif;
+  line-height: var(--line-gap);
+}
+
+:root[data-line-spacing="normal"] body :is(
+    p,
+    span,
+    li,
+    a,
+    button,
+    label,
+    input,
+    textarea,
+    select
+  ) {
+  line-height: 1.55 !important;
+}
+
+:root[data-line-spacing="wide"] body :is(
+    p,
+    span,
+    li,
+    a,
+    button,
+    label,
+    input,
+    textarea,
+    select
+  ) {
+  line-height: 1.9 !important;
+}
+
+:root[data-line-spacing="wide"] body :is(h1, h2, h3, h4, h5, h6) {
+  line-height: 1.25 !important;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}

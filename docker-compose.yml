@@ -1,0 +1,82 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: adaptive-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: adaptive-server
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?schema=public
+      JWT_SECRET: ${JWT_SECRET}
+      PORT: 3001
+      API_PREFIX: ${API_PREFIX}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      ADMIN_FULL_NAME: ${ADMIN_FULL_NAME}
+      ADMIN_PHONE: ${ADMIN_PHONE}
+      DEMO_USER_EMAIL: ${DEMO_USER_EMAIL}
+      DEMO_USER_PASSWORD: ${DEMO_USER_PASSWORD}
+      DEMO_USER_FULL_NAME: ${DEMO_USER_FULL_NAME}
+      DEMO_USER_PHONE: ${DEMO_USER_PHONE}
+    volumes:
+      - uploads_data:/app/uploads
+    command: >
+      sh -c "npx prisma db push &&
+      if [ \"${RUN_SEED}\" = \"true\" ]; then npm run prisma:seed; fi &&
+      node dist/main.js"
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+    container_name: adaptive-client
+    restart: unless-stopped
+    depends_on:
+      - server
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: adaptive-caddy
+    restart: unless-stopped
+    depends_on:
+      - client
+      - server
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN}
+      API_DOMAIN: ${API_DOMAIN}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  postgres_data:
+  uploads_data:
+  caddy_data:
+  caddy_config:

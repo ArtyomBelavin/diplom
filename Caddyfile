@@ -1,0 +1,9 @@
+{$APP_DOMAIN} {
+  encode gzip zstd
+  reverse_proxy client:3000
+}
+
+{$API_DOMAIN} {
+  encode gzip zstd
+  reverse_proxy server:3001
+}

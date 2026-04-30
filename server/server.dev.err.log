@@ -1,0 +1,126 @@
+[31m[Nest] 23508  - [39m28.04.2026, 22:40:35 [31m  ERROR[39m [38;5;3m[ExceptionHandler] [39mPrismaClientInitializationError: `PrismaClient` needs to be constructed with a non-empty, valid `PrismaClientOptions`:
+
+```
+new PrismaClient({
+  ...
+})
+```
+
+or
+
+```
+constructor() {
+  super({ ... });
+}
+```
+          
+    at new t [90m(C:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@prisma[24m\client\src\runtime\getPrismaClient.ts:336:15[90m)[39m
+    at new PrismaService [90m(C:\Users\Artem\Desktop\dimpom\server\[39msrc\prisma\prisma.service.ts:5:8[90m)[39m
+    at Injector.instantiateClass [90m(C:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@nestjs[24m\core\injector\injector.js:422:19[90m)[39m
+    at callback [90m(C:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@nestjs[24m\core\injector\injector.js:70:45[90m)[39m
+    at async Injector.resolveConstructorParams [90m(C:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@nestjs[24m\core\injector\injector.js:170:24[90m)[39m
+    at async Injector.loadInstance [90m(C:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@nestjs[24m\core\injector\injector.js:75:13[90m)[39m
+    at async Injector.loadProvider [90m(C:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@nestjs[24m\core\injector\injector.js:103:9[90m)[39m
+    at async [90mC:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@nestjs[24m\core\injector\instance-loader.js:56:13
+    at async Promise.all (index 3)
+    at async InstanceLoader.createInstancesOfProviders [90m(C:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@nestjs[24m\core\injector\instance-loader.js:55:9[90m)[39m {
+  clientVersion: [32m'7.8.0'[39m,
+  errorCode: [90mundefined[39m,
+  retryable: [90mundefined[39m
+}
+node:internal/modules/cjs/loader:1368
+  throw err;
+  ^
+
+Error: Cannot find module 'C:\Users\Artem\Desktop\dimpom\server\dist\main'
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1365:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v22.18.0
+node:internal/modules/cjs/loader:1368
+  throw err;
+  ^
+
+Error: Cannot find module 'C:\Users\Artem\Desktop\dimpom\server\dist\main'
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1365:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1021:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1026:22)
+    at Function._load (node:internal/modules/cjs/loader:1175:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v22.18.0
+[31m[Nest] 22292  - [39m28.04.2026, 22:54:27 [31m  ERROR[39m [38;5;3m[ExceptionHandler] [39mPrismaClientInitializationError: `PrismaClient` needs to be constructed with a non-empty, valid `PrismaClientOptions`:
+
+```
+new PrismaClient({
+  ...
+})
+```
+
+or
+
+```
+constructor() {
+  super({ ... });
+}
+```
+          
+    at new t [90m(C:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@prisma[24m\client\src\runtime\getPrismaClient.ts:336:15[90m)[39m
+    at new PrismaService [90m(C:\Users\Artem\Desktop\dimpom\server\[39msrc\prisma\prisma.service.ts:5:8[90m)[39m
+    at Injector.instantiateClass [90m(C:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@nestjs[24m\core\injector\injector.js:422:19[90m)[39m
+    at callback [90m(C:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@nestjs[24m\core\injector\injector.js:70:45[90m)[39m
+    at async Injector.resolveConstructorParams [90m(C:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@nestjs[24m\core\injector\injector.js:170:24[90m)[39m
+    at async Injector.loadInstance [90m(C:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@nestjs[24m\core\injector\injector.js:75:13[90m)[39m
+    at async Injector.loadProvider [90m(C:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@nestjs[24m\core\injector\injector.js:103:9[90m)[39m
+    at async [90mC:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@nestjs[24m\core\injector\instance-loader.js:56:13
+    at async Promise.all (index 3)
+    at async InstanceLoader.createInstancesOfProviders [90m(C:\Users\Artem\Desktop\dimpom\server\[39mnode_modules\[4m@nestjs[24m\core\injector\instance-loader.js:55:9[90m)[39m {
+  clientVersion: [32m'7.8.0'[39m,
+  errorCode: [90mundefined[39m,
+  retryable: [90mundefined[39m
+}
+node:child_process:990
+    throw err;
+    ^
+
+<ref *1> Error: spawnSync C:\WINDOWS\system32\cmd.exe EPERM
+    at Object.spawnSync (node:internal/child_process:1120:20)
+    at spawnSync (node:child_process:901:24)
+    at execSync (node:child_process:982:15)
+    at treeKillSync (C:\Users\Artem\Desktop\dimpom\server\node_modules\@nestjs\cli\lib\utils\tree-kill.js:7:38)
+    at C:\Users\Artem\Desktop\dimpom\server\node_modules\@nestjs\cli\actions\start.action.js:69:46
+    at Object.onWatchStatusChange (C:\Users\Artem\Desktop\dimpom\server\node_modules\@nestjs\cli\lib\compiler\watch-compiler.js:82:17)
+    at C:\Users\Artem\Desktop\dimpom\server\node_modules\typescript\lib\typescript.js:133916:30
+    at emitFilesAndReportErrors (C:\Users\Artem\Desktop\dimpom\server\node_modules\typescript\lib\typescript.js:133737:5)
+    at result.afterProgramCreate (C:\Users\Artem\Desktop\dimpom\server\node_modules\typescript\lib\typescript.js:133912:5)
+    at synchronizeProgram (C:\Users\Artem\Desktop\dimpom\server\node_modules\typescript\lib\typescript.js:134235:12) {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'spawnSync C:\\WINDOWS\\system32\\cmd.exe',
+  path: 'C:\\WINDOWS\\system32\\cmd.exe',
+  spawnargs: [ '/d', '/s', '/c', '"taskkill /pid 20716 /T /F"' ],
+  error: [Circular *1],
+  status: null,
+  signal: null,
+  output: null,
+  pid: 0,
+  stdout: undefined,
+  stderr: undefined
+}
+
+Node.js v22.18.0
